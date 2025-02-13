@@ -47,4 +47,8 @@ describe('StringCalculatorService', () => {
     expect(service.add('//-\n4-5-6')).toEqual(15);
     expect(service.add('//|\n10|20|30')).toEqual(60);
   });
+
+  it('should throw an error for negative numbers', () => {
+    expect(() => service.add('-1,2,-3')).toThrowError('Negative numbers not allowed -1, -3');
+  })
 });

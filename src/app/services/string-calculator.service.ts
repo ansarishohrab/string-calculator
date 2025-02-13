@@ -22,9 +22,17 @@ export class StringCalculatorService {
       numbers = customDelimiterMatch[2];
     }
 
-    return numbers
+    const numArray = numbers
       .split(delimiter)
-      .map((num) => parseInt(num.trim(), 10) || 0)
-      .reduce((sum, num) => sum + num, 0);
+      .map((num) => parseInt(num.trim(), 10) || 0);
+
+    const negativeNumbers = numArray.filter((num) => num < 0);
+    if (negativeNumbers.length) {
+      throw new Error(
+        `Negative numbers not allowed ${negativeNumbers.join(', ')}`
+      );
+    }
+
+    return numArray.reduce((sum, num) => sum + num, 0);
   }
 }
