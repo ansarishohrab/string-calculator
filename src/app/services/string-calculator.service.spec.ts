@@ -49,6 +49,12 @@ describe('StringCalculatorService', () => {
   });
 
   it('should throw an error for negative numbers', () => {
-    expect(() => service.add('-1,2,-3')).toThrowError('Negative numbers not allowed -1, -3');
-  })
+    expect(() => service.add('-1,2,-3')).toThrowError(
+      'Negative numbers not allowed -1, -3'
+    );
+  });
+
+  it('should ignore numbers greater than 1000', () => {
+    expect(service.add('2,1001')).toEqual(2);
+  });
 });

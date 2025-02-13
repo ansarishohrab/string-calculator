@@ -33,6 +33,8 @@ export class StringCalculatorService {
       );
     }
 
-    return numArray.reduce((sum, num) => sum + num, 0);
+    return numArray
+      .filter((num) => num <= 1000)
+      .reduce((sum, num) => sum + num, 0);
   }
 }
