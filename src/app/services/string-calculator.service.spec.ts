@@ -16,5 +16,9 @@ describe('StringCalculatorService', () => {
 
   it('should return 0 for an empty string', () => {
     expect(service.add('')).toEqual(0);
-  })
+  });
+
+  it('should return the number itself when only one number is provided', () => {
+    expect(service.add('5')).toEqual(5);
+  });
 });

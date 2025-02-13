@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class StringCalculatorService {
   constructor() {}
   add(numbers: string): number {
-    if (!numbers) {
+    if (!numbers.trim()) {
       return 0;
     }
     return parseInt(numbers, 10) || 0;
