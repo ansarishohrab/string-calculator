@@ -29,4 +29,8 @@ describe('StringCalculatorService', () => {
   it('should return the sum of multiple comma-separated numbers', () => {
     expect(service.add('1,2,3,4,5')).toEqual(15);
   });
+
+  it('should handle spaces between numbers', () => {
+    expect(service.add('1 , 2, 3, 4, 5')).toEqual(15);
+  });
 });
