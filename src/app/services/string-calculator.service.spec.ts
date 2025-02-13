@@ -36,5 +36,9 @@ describe('StringCalculatorService', () => {
 
   it('should handle new lines between numbers', () => {
     expect(service.add('1\n2,3')).toEqual(6);
-  })
+  });
+
+  it('should return 0 for empty string with new lines', () => {
+    expect(service.add('\n\n')).toEqual(0);
+  });
 });
