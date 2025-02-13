@@ -9,6 +9,9 @@ export class StringCalculatorService {
     if (!numbers.trim()) {
       return 0;
     }
-    return parseInt(numbers, 10) || 0;
+    return numbers
+      .split(',')
+      .map((num) => parseInt(num.trim(), 10) || 0)
+      .reduce((sum, num) => sum + num, 0);
   }
 }
