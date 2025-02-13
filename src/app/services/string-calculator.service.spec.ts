@@ -41,4 +41,10 @@ describe('StringCalculatorService', () => {
   it('should return 0 for empty string with new lines', () => {
     expect(service.add('\n\n')).toEqual(0);
   });
+
+  it('should suppport custom delimiter', () => {
+    expect(service.add('//;\n1;2')).toEqual(3);
+    expect(service.add('//-\n4-5-6')).toEqual(15);
+    expect(service.add('//|\n10|20|30')).toEqual(60);
+  });
 });
